@@ -2,6 +2,7 @@
 
 sax = require 'sax'
 events = require 'events'
+events = events.EventEmitter || events
 bom = require './bom'
 processors = require './processors'
 setImmediate = require('timers').setImmediate
