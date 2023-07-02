@@ -113,7 +113,7 @@ var xml = '<foo></foo>';
 
 // With parser
 var parser = new xml2js.Parser(/* options */);
-parser.parseStringPromise(data).then(function (result) {
+parser.parseStringPromise(xml).then(function (result) {
   console.dir(result);
   console.log('Done');
 })
@@ -122,7 +122,7 @@ parser.parseStringPromise(data).then(function (result) {
 });
 
 // Without parser
-xml2js.parseStringPromise(data /*, options */).then(function (result) {
+xml2js.parseStringPromise(xml /*, options */).then(function (result) {
   console.dir(result);
   console.log('Done');
 })
@@ -324,7 +324,8 @@ value})``. Possible options are:
     Version 0.1 default was `@`.
   * `charkey` (default: `_`): Prefix that is used to access the character
     content. Version 0.1 default was `#`.
-  * `explicitCharkey` (default: `false`)
+  * `explicitCharkey` (default: `false`) Determines whether or not to use 
+    a `charkey` prefix for elements with no attributes.
   * `trim` (default: `false`): Trim the whitespace at the beginning and end of
     text nodes.
   * `normalizeTags` (default: `false`): Normalize all tag names to lowercase.
